@@ -1,7 +1,7 @@
 "use strict";
 
 let teams = [
-  { code: "DAL", name: "Dallas Cowboys", plays: "Arlington, TX" },
+  { code: "DAL", name: "Dallas CowGirls👎", plays: "Arlington, TX" },
   { code: "DEN", name: "Denver Broncos", plays: "Denver, CO" },
   { code: "HOU", name: "Houston Texans", plays: "Houston, TX" },
   { code: "KAN", name: "Kansas City Chiefs", plays: "Kansas City, MO" },
@@ -27,7 +27,14 @@ function loadTeams() {
 
 function displayTeam() {
   const displayInput = document.getElementById("displayInput");
-  displayInput.value = footballList.value;
+  const teamSelected = document.getElementById("footballList").value;
+
+  for (const team of teams) {
+    if (team.code === teamSelected) {
+      displayInput.value = "The " + team.name + " are located in " + team.plays;
+    }
+  }
+//   displayInput.value = footballList.value;
 }
 
 window.onload = init;
